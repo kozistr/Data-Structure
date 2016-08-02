@@ -69,7 +69,7 @@ int main(int argc, char *argv[]) {
 	printf("\nAfter Inserting 'Node C'\n");
 
 	ptr = nBuf[0];
-	for (int i = 0; i < 6; i++) {
+	for (int i = 0; i < 7; i++) {
 		printf("%2c", ptr->ch);
 		ptr = ptr->next;
 	}
