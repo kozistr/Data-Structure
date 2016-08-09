@@ -96,7 +96,6 @@ void Recursive_Traversal(node *ptr) {
 	}
 }
 
-
 void Stack_Traverse(node *ptr) {
 	Push(ptr);
 
