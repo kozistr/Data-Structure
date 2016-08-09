@@ -88,7 +88,16 @@ void Visit(node *ptr) {
 	printf("%2c -> ", ptr->data);
 }
 
-void Traverse(node *ptr) {
+void Recursive_Traversal(node *ptr) {
+	if(ptr != nBuf[1]) {
+		Display(ptr);
+		Recursive_Traversal(ptr->left);
+		Recursive_traversal(ptr->right);
+	}
+}
+
+
+void Stack_Traverse(node *ptr) {
 	Push(ptr);
 
 	while (!IsStackEmpty()) {
@@ -106,5 +115,12 @@ void Traverse(node *ptr) {
 int main(int argc, char *argv[]) {
 	InitNode();
 	InitTree();
-	Traverse(nBuf[0]->left); // head_node->left
+
+	printf("- Pre-Order Tree Traversal\n\n");
+
+	printf("[*] Method : Recursive\n");
+	Recursive_Traverse(nBuf[0]->left); // head_node->left => parent
+
+	printf("\n[*] Method : Stack\n");
+	Stack_Traverse(nBuf[0]->left); // head_node->left => parent
 }
