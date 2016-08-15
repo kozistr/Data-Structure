@@ -1,2 +1,2 @@
 # Data-Structure
-Data Structure with c + Algorithm
+Data Structure and Algorithm with C
