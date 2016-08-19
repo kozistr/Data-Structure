@@ -114,7 +114,6 @@ void main(int argc, char *argv[]) {
 	printf("[+] Generating Random Numbers\n");
 
 	printf("\n[+] Sorting\n");
-
 	for (int i = 0; i < 4; ++i) {
 		gen_rand();
 		printf("   [*] %s Sort : \n", name[i]);
