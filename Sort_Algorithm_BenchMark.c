@@ -105,15 +105,17 @@ void quick_sort(int *data, int left, int right) {
 }
 
 void main(int argc, char *argv[]) {
-	time_t log[5][2];
+	time_t log[5][2]; // Logging each algorithms' elapsed time
+	/* algorithms */
 	char *name[] = { "Bubble", "Insert", "Select", "Shell", "Quick" };
 	LPVOID func[] = { bubble_sort, insert_sort, select_sort, shell_sort, };
 	
 	printf("- Sorting Algorithm BenchMark\n\n");
 
 	printf("[+] Generating Random Numbers\n");
-
+	//gen_rand(); <- Could it be called just one time without allocating another same size array.
 	printf("\n[+] Sorting\n");
+	
 	for (int i = 0; i < 4; ++i) {
 		gen_rand();
 		printf("   [*] %s Sort : \n", name[i]);
