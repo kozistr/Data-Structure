@@ -3,10 +3,10 @@
 #include <stdlib.h>
 #include <Windows.h>
 
-#define MAX 10000
+#define MAX 20000
 #define swap(a, b) ((&(a) == &(b))? a : ( a ^= b, b ^=a, a ^= b))
 
-int buf[MAX];
+int buf[MAX], tmo[MAX];
 
 int IsNumExist(int num, int index) {
 	for (int i = 0; i < index; ++i) {
@@ -103,9 +103,27 @@ void quick_sort(int *data, int left, int right) {
 		quick_sort(data, i + 1, right);
 	}
 }
+void merge_sort(int *data, int left, int right) {
+	int i, j;
+	if (right > left) {
+		int middle = (right + left) / 2;
+
+		merge_sort(data, left, middle);
+		merge_sort(data, middle + 1, right);
+
+		for (i = middle + 1; i > left; --i)
+			tmp[i - 1] = data[i - 1];
+
+		for (j = middle; j < right; ++j)
+			tmp[right + middle - j] = data[j + 1];
+
+		for (int k = left; k <= right; ++k)
+			data[k] = (tmp[i] < tmp[j]) ? tmp[++i] : tmp[--j];
+	}
+}
 
 void main(int argc, char *argv[]) {
-	time_t log[5][2]; // Logging each algorithms' elapsed time
+	time_t log[6][2]; // Logging each algorithms' elapsed time
 	/* algorithms */
 	char *name[] = { "Bubble", "Insert", "Select", "Shell", "Quick" };
 	LPVOID func[] = { bubble_sort, insert_sort, select_sort, shell_sort, };
@@ -131,4 +149,11 @@ void main(int argc, char *argv[]) {
 	quick_sort(buf, 0, MAX - 1);
 	log[4][1] = clock() - log[4][0];
 	printf("\tElapsed Time : %fs\n", (float)log[4][1] / (CLOCKS_PER_SEC));
+	
+	gen_rand();
+	printf("   [*] Merge Sort : \n");
+	log[5][0] = clock();
+	merge_sort(buf, 0, MAX - 1);
+	log[5][1] = clock() - log[5][0];
+	printf("\tElapsed Time : %fs\n", (float)log[5][1] / (CLOCKS_PER_SEC));
 }
