@@ -6,7 +6,7 @@
 #define MAX 20000
 #define swap(a, b) ((&(a) == &(b))? a : ( a ^= b, b ^=a, a ^= b))
 
-int buf[MAX], tmo[MAX];
+int buf[MAX], tmp[MAX];
 
 int IsNumExist(int num, int index) {
 	for (int i = 0; i < index; ++i) {
