@@ -73,7 +73,7 @@ void quick_sort(int *data, int left, int right) {
 }
 
 void main(int argc, char *argv[]) {
-	printf("- Binary Tree Search Algorithm\n\n");
+	printf("- Binary Search Algorithm\n\n");
 
 	printf("[+] Generating Random Numbers\n");
 	gen_rand();
