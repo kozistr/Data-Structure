@@ -19,6 +19,7 @@ int IsNumExist(int num, int index) {
 void display(void) {
 	for (int i = 1; i <= MAX; (i % 10 == 0) ? printf("%3d\n", buf[i - 1]) : printf("%3d ", buf[i - 1]), ++i);
 }
+
 void gen_rand(void) {
 	srand((unsigned)time(0));
 
