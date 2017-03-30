@@ -84,6 +84,6 @@ void main(int argc, char *argv[]) {
 	display();
 
 	printf("\n[+] Searching\n");
-	int n = buf[rand() % MAX + 1];
+	int n = buf[rand() % MAX];
 	printf("  [*] %d at %d\n", n, binary_search(n));
 }
